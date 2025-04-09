@@ -1,37 +1,48 @@
 # SignosCalendario
 ```java
-package signos;
+package javaapplication23;
 
 import java.util.Calendar;
 import java.util.Scanner;
 
 /**
  *
- * @author Henrique Michel Rodrigues
+ * @author Henrique
  */
-public class Signos {
+public class JavaApplication23 {
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-
         //Declarando Variaveis
-        String nome, cor, signo;
-        int anoNascimento, diaNascimento, mesNascimento, numeroSorte, idade, numCor, sexo;
+        String nome, cor, signo, sexo;
+        int anoNascimento, diaNascimento, mesNascimento, numeroSorte, idade, numCor;
         Scanner ler = new Scanner(System.in);
         Calendar hoje = Calendar.getInstance();
 
-        //Entrada de dados
+        //Entrada de dados das informaçãoes do usuário
+        
         System.out.println("Qual seu nome?");
         nome = ler.nextLine();
         System.out.println("Digite 1 para mulher ou 2 para homem ou 3 para outros");
-        sexo = ler.nextInt();
+        sexo = ler.nextLine();
         System.out.println("Digite o dia que nasceu:");
         diaNascimento = ler.nextInt();
         System.out.println("Digite o mês que nasceu:");
         mesNascimento = ler.nextInt();
         System.out.println("Digite o ano que nasceu:");
         anoNascimento = ler.nextInt();
+        
+        //verificar se o nome tem mais ou igual 8 caracteres 
+        if(nome.length()>=8){
+            System.out.println("Valido");
+        }else{
+            System.out.println("Seu nome não foi informado corretamente");
+            return;
+        }
 
-        //processamento da idade
+        //processamento da idade para verificar se já fez aniversario ou não
         int diaAtual = hoje.get(Calendar.DATE);
         int mesAtual = hoje.get(Calendar.MONTH) + 1;
         int anoAtual = hoje.get(Calendar.YEAR);
@@ -39,104 +50,76 @@ public class Signos {
         if (mesNascimento > mesAtual || (mesNascimento == mesAtual && diaNascimento > diaAtual)) {
             idade--;
         }
-
-        /*Processamento de Dia/Mes
-        if (mesNascimento == 1 && diaNascimento >= 1 && diaNascimento <= 31) {
-
-            return;
-        }
-        if (mesNascimento == 2 && diaNascimento >= 1 && diaNascimento <= 28) {
-
-            return;
-        }
-        if (mesNascimento == 3 && diaNascimento >= 1 && diaNascimento <= 31) {
-
-            return;
-        }
-        if (mesNascimento == 4 && diaNascimento >= 1 && diaNascimento <= 30) {
-
-            return;
-        }
-        if (mesNascimento == 5 && diaNascimento >= 1 && diaNascimento <= 31) {
-
-            return;
-        }
-        if (mesNascimento == 6 && diaNascimento >= 1 && diaNascimento <= 30) {
-
-            return;
-        }
-        if (mesNascimento == 7 && diaNascimento >= 1 && diaNascimento <= 31) {
-            
-            return;
-        }
-        if (mesNascimento == 8 && diaNascimento >= 1 && diaNascimento <= 31) {
-
-            return;
-        }
-        if (mesNascimento == 9 && diaNascimento >= 1 && diaNascimento <= 30) {
-
-            return;
-        }
-        if (mesNascimento == 10 && diaNascimento >= 1 && diaNascimento <= 31) {
-
-            return;
-        }
-        if (mesNascimento == 11 && diaNascimento >= 1 && diaNascimento <= 30) {
-
-            return;
-        }
-        if (mesNascimento == 12 && diaNascimento >= 1 && diaNascimento <= 31) {
-
-            return;
-        }
-*/
-        //Declarar a string signo vazia
+        
+        //entrada de dados de signo para não deixar ela vazia
         signo="Aries";
-        //Aries
+        
+        //As condições de dia/mes/ano de nascimento
        if(diaNascimento>0  && diaNascimento <=31 && 
                mesNascimento>0 && mesNascimento<=12 && 
                anoNascimento>=1900 && anoNascimento<=anoAtual){
+           
+           /*
+           Abaixo verifica se o dia e o mês que a pessoa nasceu
+           esta de acordo com o signo
+           */
+
+           //Aries
         if ((diaNascimento >= 21 && diaNascimento <= 31 && mesNascimento == 3)
-                || (diaNascimento >= 1 && diaNascimento <= 20 && mesAtual == 4)) {
-            
+                || (diaNascimento >= 1 && diaNascimento <= 20 && mesNascimento == 4)) {
+            signo="Aries";
             //Touro
-        } else if ((diaNascimento >= 21 && diaNascimento <= 31 && mesNascimento == 4)
+        } else if ((diaNascimento >= 21 && diaNascimento <= 30 && mesNascimento == 4)
                 || (diaNascimento >= 1 && diaNascimento <= 20 && mesNascimento == 5)) {
             signo = "Touro";
             //Gêmeos
         } else if ((diaNascimento >= 21 && diaNascimento <= 31 && mesNascimento == 5)
                 || (diaNascimento >= 1 && diaNascimento <= 20 && mesNascimento == 6)) {
             signo = "Gêmeos";
-        } else if ((diaNascimento >= 21 && diaNascimento <= 31 && mesNascimento == 6)
+            //Câncer
+        } else if ((diaNascimento >= 21 && diaNascimento <= 30 && mesNascimento == 6)
                 || (diaNascimento >= 1 && diaNascimento <= 21 && mesNascimento == 7)) {
             signo = "Câncer";
+            //Leão
         } else if ((diaNascimento >= 22 && diaNascimento <= 31 && mesNascimento == 7)
                 || (diaNascimento >= 1 && diaNascimento <= 22 && mesNascimento == 8)) {
-            signo = "Leâo";
+            signo = "Leão";
+            //Virgem
         } else if ((diaNascimento >= 23 && diaNascimento <= 31 && mesNascimento == 8)
                 || (diaNascimento >= 1 && diaNascimento <= 22 && mesNascimento == 9)) {
             signo = "Virgem";
-        }else if((diaNascimento >= 23 && diaNascimento <= 31 && mesNascimento == 9)
+            //Libra
+        }else if((diaNascimento >= 23 && diaNascimento <= 30 && mesNascimento == 9)
                 || (diaNascimento >= 1 && diaNascimento <= 22 && mesNascimento == 10)) {
             signo = "Libra";
-        }else if((diaNascimento >= 23 && diaNascimento <= 31 && mesNascimento == 10)
+            //Escorpião
+        }else if((diaNascimento >= 23 && diaNascimento <= 30 && mesNascimento == 10)
                 || (diaNascimento >= 1 && diaNascimento <= 21 && mesNascimento == 11)) {
             signo = "Escorpião";
+            //Sagitário
         }else if((diaNascimento >= 22 && diaNascimento <= 31 && mesNascimento == 11)
                 || (diaNascimento >= 1 && diaNascimento <= 21 && mesNascimento == 12)) {
-            signo = "Sagitário";          
+            signo = "Sagitário";
+            //Capricórnio
         }else if((diaNascimento >= 22 && diaNascimento <= 31 && mesNascimento == 12)
                 || (diaNascimento >= 1 && diaNascimento <= 20 && mesNascimento == 1)) {
             signo = "Capricórnio";
+            //Aquário
         }else if((diaNascimento >= 21 && diaNascimento <= 31 && mesNascimento == 1)
                 || (diaNascimento >= 1 && diaNascimento <= 19 && mesNascimento == 2)) {
             signo = "Aquário";
-        }else if((diaNascimento >= 20 && diaNascimento <= 31 && mesNascimento == 2)
+            //Peixes
+        }else if((diaNascimento >= 20 && diaNascimento <= 28 && mesNascimento == 2)
                 || (diaNascimento >= 1 && diaNascimento <= 20 && mesNascimento == 3)) {
             signo = "Peixes";
         }
+        /*
+        Conectado no if de condições de nascimento. se der falso lá em cima
+        não irá verificar os signos e resultará na mensagem abaixo
+        */
        }else{
            System.out.println("Dia ou mes ou ano invalidos");
+           return;
        }
 
         //Gera um número da sorte de 1 a 100
@@ -144,7 +127,8 @@ public class Signos {
 
         //Gera uma cor da sorte de 1 a 10
         numCor = 1 + (int) Math.random() * 10;
-
+        
+        //entrada de dados da cor
         cor = "azul";
 
         switch (numCor) {
@@ -174,28 +158,26 @@ public class Signos {
             case 9:
                 cor = "Branco";
                 break;
-            case 10:
+            default:
                 cor = "Cinza";
                 break;
         }
 
-        switch (sexo) {
-            case 1:
-                System.out.println("Sra." + nome + ", nascida em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
+        if(sexo.equals("1")){
+            System.out.println("Sra." + nome + ", nascida em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
                         + "é do signo de " + signo + "." + " Você tem " + idade + " anos." + " Seu número da sorte é " + numeroSorte
-                        + "e sua cor é " + cor + ".");
-                break;
-            case 2:
-                System.out.println("Sr." + nome + ", nascida em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
+                        + " e sua cor é " + cor + ".");
+        }else if(sexo.equals("2")){
+            System.out.println("Sr." + nome + ", nascido em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
                         + "é do signo de " + signo + "." + " Você tem " + idade + " anos." + " Seu número da sorte é " + numeroSorte
-                        + "e sua cor é " + cor + ".");
-                break;
-            default:
-                System.out.println("Sra ou Sr." + nome + ", nascida em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
+                        + " e sua cor é " + cor + ".");
+        }else{
+            System.out.println("Sra ou Sr." + nome + ", nascida(o) em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
                         + "é do signo de " + signo + "." + " Você tem " + idade + " anos." + " Seu número da sorte é " + numeroSorte
-                        + "e sua cor é " + cor + ".");
-                break;
+                        + " e sua cor é " + cor + ".");
         }
+
     }
 }
+
 ```
