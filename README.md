@@ -52,8 +52,8 @@ public class JavaApplication23 {
         signo="Aries";
         
         //As condições de dia/mes/ano de nascimento
-       if(diaNascimento>0  && diaNascimento <=31 && 
-               mesNascimento>0 && mesNascimento<=12 && 
+       if(diaNascimento>1  && diaNascimento <=31 && 
+               mesNascimento>1 && mesNascimento<=12 && 
                anoNascimento>=1900 && anoNascimento<=anoAtual){
            
            /*
