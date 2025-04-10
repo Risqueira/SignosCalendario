@@ -11,9 +11,6 @@ import java.util.Scanner;
  */
 public class JavaApplication23 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         //Declarando Variaveis
         String nome, cor, signo, sexo;
@@ -25,7 +22,7 @@ public class JavaApplication23 {
         
         System.out.println("Qual seu nome?");
         nome = ler.nextLine();
-        System.out.println("Digite 1 para mulher ou 2 para homem ou 3 para outros");
+        System.out.println("Digite 1 para mulher ou 2 para homem:");
         sexo = ler.nextLine();
         System.out.println("Digite o dia que nasceu:");
         diaNascimento = ler.nextInt();
@@ -51,7 +48,7 @@ public class JavaApplication23 {
             idade--;
         }
         
-        //entrada de dados de signo para não deixar ela vazia
+        //entrada de dados de signo
         signo="Aries";
         
         //As condições de dia/mes/ano de nascimento
@@ -93,11 +90,11 @@ public class JavaApplication23 {
                 || (diaNascimento >= 1 && diaNascimento <= 22 && mesNascimento == 10)) {
             signo = "Libra";
             //Escorpião
-        }else if((diaNascimento >= 23 && diaNascimento <= 30 && mesNascimento == 10)
+        }else if((diaNascimento >= 23 && diaNascimento <= 31 && mesNascimento == 10)
                 || (diaNascimento >= 1 && diaNascimento <= 21 && mesNascimento == 11)) {
             signo = "Escorpião";
             //Sagitário
-        }else if((diaNascimento >= 22 && diaNascimento <= 31 && mesNascimento == 11)
+        }else if((diaNascimento >= 22 && diaNascimento <= 30 && mesNascimento == 11)
                 || (diaNascimento >= 1 && diaNascimento <= 21 && mesNascimento == 12)) {
             signo = "Sagitário";
             //Capricórnio
@@ -122,59 +119,45 @@ public class JavaApplication23 {
            return;
        }
 
-        //Gera um número da sorte de 1 a 100
-        numeroSorte = 1 + (int) (Math.random() * 100);
+        //Gera um número da sorte de 1 a 99
+        numeroSorte = 1 + (int) (Math.random() * 99);
 
         //Gera uma cor da sorte de 1 a 10
-        numCor = 1 + (int) Math.random() * 10;
+        numCor = 1 + (int) (Math.random() * 10);
         
         //entrada de dados da cor
-        cor = "azul";
+        cor="azul";
 
-        switch (numCor) {
-            case 1:
-                break;
-            case 2:
-                cor = "Vermelho";
-                break;
-            case 3:
-                cor = "Verde";
-                break;
-            case 4:
-                cor = "Amarelo";
-                break;
-            case 5:
-                cor = "Roxo";
-                break;
-            case 6:
-                cor = "Laranja";
-                break;
-            case 7:
-                cor = "Índigo";
-                break;
-            case 8:
-                cor = "Preto";
-                break;
-            case 9:
-                cor = "Branco";
-                break;
-            default:
-                cor = "Cinza";
-                break;
+        //Condições que pode resultar na cor daquele número
+        if(numCor==1){
+            cor="Rosa";
+        }else if(numCor==2){
+            cor="Verde";
+        }else if(numCor==3){
+            cor="Amarelo";
+        }else if(numCor==4){
+            cor="Roxo";
+        }else if(numCor==5){
+            cor="Laranja";
+        }else if(numCor==6){
+            cor="Preto";
+        }else if(numCor==7){
+            cor="Branco";
+        }else if(numCor==8){
+            cor="Marrom";
+        }else if(numCor==9){
+            cor="Vermelho";
         }
 
+        //Saída de dados da mensagem final
         if(sexo.equals("1")){
             System.out.println("Sra." + nome + ", nascida em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
                         + "é do signo de " + signo + "." + " Você tem " + idade + " anos." + " Seu número da sorte é " + numeroSorte
                         + " e sua cor é " + cor + ".");
-        }else if(sexo.equals("2")){
-            System.out.println("Sr." + nome + ", nascido em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
-                        + "é do signo de " + signo + "." + " Você tem " + idade + " anos." + " Seu número da sorte é " + numeroSorte
-                        + " e sua cor é " + cor + ".");
         }else{
-            System.out.println("Sra ou Sr." + nome + ", nascida(o) em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
+            System.out.println("Sr." + nome + ", nascida(o) em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
                         + "é do signo de " + signo + "." + " Você tem " + idade + " anos." + " Seu número da sorte é " + numeroSorte
-                        + " e sua cor é " + cor + ".");
+                        + " e sua cor da sorte é " + cor + ".");
         }
 
     }
