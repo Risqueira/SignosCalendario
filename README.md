@@ -106,10 +106,11 @@ public class JavaApplication23 {
                 || (diaNascimento >= 1 && diaNascimento <= 19 && mesNascimento == 2)) {
             signo = "Aquário";
             //Peixes
-        }else if((diaNascimento >= 20 && diaNascimento <= 28 && mesNascimento == 2)
-                || (diaNascimento >= 1 && diaNascimento <= 20 && mesNascimento == 3)) {
+        }else{
             signo = "Peixes";
         }
+        //Digitar entre 20/02 ate 31/02 e 01/03 ate 20/03 e de Peixes
+
         /*
         Conectado no if de condições de nascimento. se der falso lá em cima
         não irá verificar os signos e resultará na mensagem abaixo
