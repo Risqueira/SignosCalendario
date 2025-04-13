@@ -147,8 +147,8 @@ public class JavaApplication23 {
             cor="Marrom";
         }else if(numCor==9){
             cor="Vermelho";
-        }
-
+        }else{
+            cor="Azul";
         //Saída de dados da mensagem final
         if(sexo.equals("1")){
             System.out.println("Sra." + nome + ", nascida em [" + diaNascimento + "/" + mesNascimento + "/" + anoNascimento + "], "
