@@ -6,8 +6,8 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 /**
- * 
- * data 25/03 - 15/04
+ *
+ *data: 25/03-15/04
  * @author henrique
  */
 public class JavaApplication80 {
@@ -53,8 +53,8 @@ public class JavaApplication80 {
         signo = "Aries";
 
         //As condições de dia/mes/ano de nascimento
-        if (diaNascimento > 1 && diaNascimento <= 31
-                && mesNascimento > 1 && mesNascimento <= 12
+        if (diaNascimento >= 1 && diaNascimento <= 31
+                && mesNascimento >= 1 && mesNascimento <= 12
                 && anoNascimento >= 1900 && anoNascimento <= anoAtual) {
 
             /*
